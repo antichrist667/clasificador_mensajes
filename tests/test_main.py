@@ -1,4 +1,6 @@
-from app.main import app
+# tests/test_geminiapi.py
+import pytest
+from app.geminiapi import clasificar_mensaje
 
-def test_app_exists():
-    assert app is not None
+def test_clasificar_mensaje_exists():
+    assert callable(clasificar_mensaje)
