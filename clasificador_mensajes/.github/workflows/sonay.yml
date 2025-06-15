@@ -12,13 +12,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # 1. Clona el repo
       - uses: actions/checkout@v3
 
+      # 2. Configura Python 3.11
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.11'
 
+      # 3. Instala dependencias dentro de clasificador_mensajes
       - name: Install dependencies
         run: |
           cd clasificador_mensajes
@@ -26,16 +29,20 @@ jobs:
           pip install -r requirements.txt
           pip install pytest pytest-cov
 
+      # 4. Ejecuta tests con cobertura
       - name: Run tests with coverage
         run: |
           cd clasificador_mensajes
           pytest --cov=app --cov-report=xml
 
-      - name: Show coverage file
+      # 5. Verifica que coverage.xml fue creado
+      - name: Show coverage.xml
         run: |
           cd clasificador_mensajes
           ls -la
+          cat coverage.xml || echo "coverage.xml NO generado"
 
+      # 6. Ejecuta análisis de SonarCloud desde esa carpeta
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
         with:
