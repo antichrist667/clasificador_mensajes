@@ -72,7 +72,7 @@ python -m streamlit run frontend/app.py
 
 ---
 
-## 📦 Endpoints disponibles (FastAPI)
+## 📦 Endpoints disponibles 
 
 | Método | Endpoint       | Descripción                        |
 |--------|----------------|------------------------------------|
