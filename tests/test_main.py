@@ -1,6 +1,11 @@
-# tests/test_geminiapi.py
-import pytest
-from app.geminiapi import clasificar_mensaje
+from fastapi.testclient import TestClient
+from app.main import app
+from unittest.mock import patch
 
-def test_clasificar_mensaje_exists():
-    assert callable(clasificar_mensaje)
+client = TestClient(app)
+
+def test_clasificar_endpoint():
+    with patch("app.geminiapi.clasificar_mensaje", return_value="Moderado"):
+        response = client.post("/clasificar", json={"texto": "Mensaje de prueba"})
+        assert response.status_code == 200
+        assert response.json()["clasificación"] in ["Urgente", "Moderado", "Normal"]

@@ -33,13 +33,19 @@ jobs:
         run: |
           pytest --cov=app --cov-report=xml
 
-      - name: Show coverage.xml (debug)
+      - name: Mostrar coverage.xml (debug)
         run: |
           ls -la
           cat coverage.xml || echo "NO se generó coverage.xml"
 
+      - name: Upload coverage report
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-report
+          path: coverage.xml
+
       - name: SonarCloud Scan
-        uses: SonarSource/sonarcloud-github-action@master
+        uses: SonarSource/sonarqube-scan-action@v5.0.0
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
