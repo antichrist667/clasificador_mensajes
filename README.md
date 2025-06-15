@@ -4,7 +4,7 @@ Este proyecto permite clasificar mensajes escritos en tres categorías: **Urgent
 
 ---
 
-## 📌 Objetivos
+## 📌 Objetivossss
 
 1. Desarrollar un servicio en Python que reciba mensajes y los clasifique como:
    - 🔴 Urgente
