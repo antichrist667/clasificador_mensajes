@@ -36,4 +36,7 @@ def mensaje_demo2():
     print(texto)
     return texto
 
+def sin_test_sonar():
+    return "Esta función no está testeada"
+
 api_key_expuesta = "AIzaSyFAKEKEY-sonar-detecta-esto"
