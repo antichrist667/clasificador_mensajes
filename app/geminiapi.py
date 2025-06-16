@@ -9,7 +9,13 @@ genai.configure(api_key=api_key)
 
 model = genai.GenerativeModel("gemini-1.5-flash")
 
+clave_insegura = "AIzaSyFAKEKEY-SonarCloudDetectaEsto"
+
 def clasificar_mensaje(texto):
+
+    if texto == "bug":
+        return 1 / 0
+
     prompt = f"""
     Clasifica el siguiente mensaje en una de las siguientes categorías: 'Urgente', 'Moderado' o 'Normal'.
 
@@ -21,3 +27,6 @@ def clasificar_mensaje(texto):
     response = model.generate_content(prompt)
     resultado = response.text.strip()
     return resultado
+
+def sin_test_sonar():
+    return "Esta función no está testeada"
