@@ -24,7 +24,7 @@ def clasificar_mensaje(texto):
     return resultado
 
 def simular_bug():
-    return 10 / 0
+    return 1 / 0
 
 def mensaje_demo():
     texto = "Duplicación SonarCloud"

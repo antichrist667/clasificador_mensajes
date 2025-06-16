@@ -25,20 +25,16 @@ def clasificar(mensaje: Mensaje):
         raise HTTPException(status_code=500, detail=str(e))
 # ✅ NUEVO endpoint para forzar detecciones en SonarCloud
 @app.get("/demo-sonar")
-def sonar_demo():
-    demo1 = mensaje_demo()
-    demo2 = mensaje_demo2()
-    clave = api_key_expuesta  # usarla explícitamente
-    no_tested = sin_test_sonar()
+def demo_sonar():
+    from app.geminiapi import simular_bug, mensaje_demo, mensaje_demo2, api_key_expuesta
 
     try:
-        simular_bug()  # esto lanzará ZeroDivisionError
+        simular_bug()  # Forzar error
     except ZeroDivisionError:
-        return {
-            "bug": "detectado",
-            "duplicaciones": [demo1, demo2],
-            "clave": clave,
-            "sin_test": no_tested
-        }
+        pass
 
-    return {"status": "ok"}
+    mensaje_demo()
+    mensaje_demo2()
+    clave = api_key_expuesta  # Usar clave vulnerable
+
+    return {"status": "demo ejecutado"}
