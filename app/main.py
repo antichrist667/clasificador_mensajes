@@ -1,12 +1,18 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
-from app.geminiapi import clasificar_mensaje
-
+from app.geminiapi import ( 
+    clasificar_mensaje,
+    mensaje_demo,# activamos el uso de la clave vulnerable
+    mensaje_demo2,
+    simular_bug,
+    sin_test_sonar,
+    api_key_expuesta  # activamos el uso de la clave vulnerable
+)
 app = FastAPI()
 
 class Mensaje(BaseModel):
     texto: str
-
+# 🔍 Smell de demostración
 if True:
     print("Esto no debería estar aquí (smell)")    
 
@@ -17,3 +23,22 @@ def clasificar(mensaje: Mensaje):
         return {"clasificación": resultado}
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+# ✅ NUEVO endpoint para forzar detecciones en SonarCloud
+@app.get("/demo-sonar")
+def sonar_demo():
+    demo1 = mensaje_demo()
+    demo2 = mensaje_demo2()
+    clave = api_key_expuesta  # usarla explícitamente
+    no_tested = sin_test_sonar()
+
+    try:
+        simular_bug()  # esto lanzará ZeroDivisionError
+    except ZeroDivisionError:
+        return {
+            "bug": "detectado",
+            "duplicaciones": [demo1, demo2],
+            "clave": clave,
+            "sin_test": no_tested
+        }
+
+    return {"status": "ok"}
