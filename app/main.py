@@ -1,8 +1,7 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from app.geminiapi import ( 
-    clasificar_mensaje,
-    bug_index_fuera_de_rango
+    clasificar_mensaje
 )
 app = FastAPI()
 
@@ -17,13 +16,3 @@ def clasificar(mensaje: Mensaje):
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
-# endpoint
-@app.get("/demo-sonar")
-def demo_sonar():
-    from app.geminiapi import simular_bug
-
-    try:
-        simular_bug()  
-    except IndexError: 
-        pass
-    return {"status": "demo ejecutado"}

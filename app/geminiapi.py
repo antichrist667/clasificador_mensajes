@@ -22,8 +22,4 @@ def clasificar_mensaje(texto):
     response = model.generate_content(prompt)
     resultado = response.text.strip()
     return resultado
-
-#  Bug 
-def bug_index_fuera_de_rango():
-    lista = [1, 2, 3]
-    return lista[0]    
+  
