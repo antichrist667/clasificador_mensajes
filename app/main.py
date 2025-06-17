@@ -4,7 +4,7 @@ from app.geminiapi import (
     clasificar_mensaje,
     clasificador_duplicado_1,
     clasificador_duplicado_2,
-    conectar_a_api
+    conectar_a_api,
     bug_index_fuera_de_rango
 )
 app = FastAPI()
