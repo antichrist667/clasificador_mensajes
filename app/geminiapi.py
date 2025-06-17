@@ -23,14 +23,3 @@ def clasificar_mensaje(texto):
     resultado = response.text.strip()
     return resultado
 
-
-# --- Bug más realista que 1/0 ---
-def bug_index_fuera_de_rango():
-    lista = []
-    return lista[0]  # esto lanza IndexError
-
-
-# --- FORZAR VULNERABILIDAD ---
-def conectar_a_api():
-    api_key = "AIzaSyFAKEKEY-sonar-detecta-esto"  # Esta línea será detectada
-    return f"Usando API key: {api_key}"
