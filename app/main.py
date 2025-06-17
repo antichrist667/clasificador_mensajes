@@ -2,11 +2,10 @@ from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from app.geminiapi import ( 
     clasificar_mensaje,
-    clasificacion_demo1,
-    clasificacion_demo2,
-    bug_index_fuera_de_rango,
-    sin_test_sonar,
-    api_key_expuesta  # activamos el uso de la clave vulnerable
+    clasificador_duplicado_1,
+    clasificador_duplicado_2,
+    conectar_a_api
+    bug_index_fuera_de_rango
 )
 app = FastAPI()
 

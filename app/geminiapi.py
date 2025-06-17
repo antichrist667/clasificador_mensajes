@@ -23,26 +23,29 @@ def clasificar_mensaje(texto):
     resultado = response.text.strip()
     return resultado
 
-# --- Duplicación real forzada (más de 10 líneas) ---
-def clasificacion_demo1(texto):
-    if "urgente" in texto.lower():
+# --- FORZAR DUPLICACIÓN ---
+def clasificador_duplicado_1(texto):
+    texto = texto.lower()
+    if "urgente" in texto:
         return "Urgente"
-    elif "importante" in texto.lower():
+    elif "importante" in texto:
         return "Moderado"
-    elif "hola" in texto.lower():
+    elif "saludo" in texto or "hola" in texto:
         return "Normal"
     else:
         return "Normal"
 
-def clasificacion_demo2(texto):
-    if "urgente" in texto.lower():
+def clasificador_duplicado_2(texto):
+    texto = texto.lower()
+    if "urgente" in texto:
         return "Urgente"
-    elif "importante" in texto.lower():
+    elif "importante" in texto:
         return "Moderado"
-    elif "hola" in texto.lower():
+    elif "saludo" in texto or "hola" in texto:
         return "Normal"
     else:
         return "Normal"
+
 
 # --- Bug más realista que 1/0 ---
 def bug_index_fuera_de_rango():
@@ -50,7 +53,7 @@ def bug_index_fuera_de_rango():
     return lista[0]  # esto lanza IndexError
 
 
-def sin_test_sonar():
-    return "Esta función no está testeada"
-
-api_key_expuesta = "AIzaSyFAKEKEY-sonar-detecta-esto"
+# --- FORZAR VULNERABILIDAD ---
+def conectar_a_api():
+    api_key = "AIzaSyFAKEKEY-sonar-detecta-esto"  # Esta línea será detectada
+    return f"Usando API key: {api_key}"
