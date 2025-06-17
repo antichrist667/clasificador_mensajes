@@ -217,44 +217,8 @@ SonarCloud lo identifica como una **vulnerabilidad de seguridad** en la categor�
 
 ---
 
-### ♻️ 4. Detección de Código Duplicado
 
-**Caso implementado:**  
-Se duplicó el siguiente bloque en dos funciones distintas:
-
-```python
-def mensaje_demo():
-    texto = "Duplicación SonarCloud"
-    print(texto)
-    return texto
-
-def mensaje_demo2():
-    texto = "Duplicación SonarCloud"
-    print(texto)
-    return texto
-```
-
-**Resultado:**  
-SonarCloud detecta la **duplicación** y sugiere refactorizar el código.
-
----
-
-### 🧪 5. Análisis de Cobertura de Pruebas
-
-**Caso implementado:**  
-Se creó una función `sin_test_sonar()` en `geminiapi.py` que no está cubierta por tests al inicio.
-
-```python
-def sin_test_sonar():
-    return "Esta función no está testeada"
-```
-
-**Resultado:**  
-SonarCloud reduce el porcentaje de **cobertura** total y muestra qué líneas no han sido cubiertas por pruebas.
-
----
-
-### 🚦 6. Quality Gate (Evaluación Final de Calidad)
+### 🚦 4. Quality Gate (Evaluación Final de Calidad)
 
 **Caso implementado:**  
 Con la combinación de bugs, smells, clave visible y baja cobertura, el Quality Gate falló automáticamente.
@@ -265,11 +229,6 @@ El estado del proyecto en SonarCloud pasa de **Passed (🟢)** a **Failed (🔴)
 ---
 
 
-## 🎥 Video Tutorial
-
-> (Incluye aquí el enlace al video donde expliques cómo corre tu proyecto)
-
----
 
 ## 📩 Contacto
 
