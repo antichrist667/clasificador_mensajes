@@ -22,14 +22,3 @@ def clasificar_mensaje(texto):
     response = model.generate_content(prompt)
     resultado = response.text.strip()
     return resultado
-
-#  Bug 
-def bug_index_fuera_de_rango():
-    lista = []
-    return lista[0]  
-
-
-#  VULNERABILIDAD 
-def conectar_a_api():
-    api_key = "AIzaSyFAKEKEY-SAJHE-KLSAJHT-LKOI" 
-    return f"Usando API key: {api_key}"
