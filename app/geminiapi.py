@@ -23,12 +23,7 @@ def clasificar_mensaje(texto):
     resultado = response.text.strip()
     return resultado
 
-#  VULNERABILIDAD 
-def conectar_a_api():
-    api_key = "AIzaSyFAKEKEY-ERTYF-SAFDHGT-CVNB" 
-    return f"Usando API key: {api_key}"
-
 #  Bug 
 def bug_index_fuera_de_rango():
-    lista = []
+    lista = [1, 2, 3]
     return lista[0]    
