@@ -4,7 +4,7 @@ from app.geminiapi import (
     clasificar_mensaje,
     clasificacion_demo1,
     clasificacion_demo2,
-    bug_index_fuera_de_rango
+    bug_index_fuera_de_rango,
     sin_test_sonar,
     api_key_expuesta  # activamos el uso de la clave vulnerable
 )
