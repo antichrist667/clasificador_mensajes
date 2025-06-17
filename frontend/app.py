@@ -9,6 +9,9 @@ mensaje = st.text_area("✉️ Escribe un mensaje para clasificar:", height=150)
 if st.button("Clasificar"):
     if mensaje.strip():
         try:
+
+
+            
             response = requests.post("http://localhost:8000/clasificar", json={"texto": mensaje})
             if response.status_code == 200:
                 categoria = response.json()["clasificación"]

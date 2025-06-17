@@ -23,29 +23,6 @@ def clasificar_mensaje(texto):
     resultado = response.text.strip()
     return resultado
 
-# --- FORZAR DUPLICACIÓN ---
-def clasificador_duplicado_1(texto):
-    texto = texto.lower()
-    if "urgente" in texto:
-        return "Urgente"
-    elif "importante" in texto:
-        return "Moderado"
-    elif "saludo" in texto or "hola" in texto:
-        return "Normal"
-    else:
-        return "Normal"
-
-def clasificador_duplicado_2(texto):
-    texto = texto.lower()
-    if "urgente" in texto:
-        return "Urgente"
-    elif "importante" in texto:
-        return "Moderado"
-    elif "saludo" in texto or "hola" in texto:
-        return "Normal"
-    else:
-        return "Normal"
-
 
 # --- Bug más realista que 1/0 ---
 def bug_index_fuera_de_rango():
