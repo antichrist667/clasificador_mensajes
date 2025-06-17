@@ -2,9 +2,9 @@ from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from app.geminiapi import ( 
     clasificar_mensaje,
-    mensaje_demo,# activamos el uso de la clave vulnerable
-    mensaje_demo2,
-    simular_bug,
+    clasificacion_demo1,
+    clasificacion_demo2,
+    bug_index_fuera_de_rango
     sin_test_sonar,
     api_key_expuesta  # activamos el uso de la clave vulnerable
 )
@@ -30,7 +30,7 @@ def demo_sonar():
 
     try:
         simular_bug()  # Forzar error
-    except ZeroDivisionError:
+    except IndexError:  # Actualiza la excepción
         pass
 
     mensaje_demo()

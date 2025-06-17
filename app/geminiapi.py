@@ -23,18 +23,32 @@ def clasificar_mensaje(texto):
     resultado = response.text.strip()
     return resultado
 
-def simular_bug():
-    return 1 / 0
+# --- Duplicación real forzada (más de 10 líneas) ---
+def clasificacion_demo1(texto):
+    if "urgente" in texto.lower():
+        return "Urgente"
+    elif "importante" in texto.lower():
+        return "Moderado"
+    elif "hola" in texto.lower():
+        return "Normal"
+    else:
+        return "Normal"
 
-def mensaje_demo():
-    texto = "Duplicación SonarCloud"
-    print(texto)
-    return texto
+def clasificacion_demo2(texto):
+    if "urgente" in texto.lower():
+        return "Urgente"
+    elif "importante" in texto.lower():
+        return "Moderado"
+    elif "hola" in texto.lower():
+        return "Normal"
+    else:
+        return "Normal"
 
-def mensaje_demo2():
-    texto = "Duplicación SonarCloud"
-    print(texto)
-    return texto
+# --- Bug más realista que 1/0 ---
+def bug_index_fuera_de_rango():
+    lista = []
+    return lista[0]  # esto lanza IndexError
+
 
 def sin_test_sonar():
     return "Esta función no está testeada"
